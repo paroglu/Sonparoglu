@@ -1,0 +1,39 @@
+PAROGLU MEDIA V13.1 — 5 DAKİKALIK BACKEND DEPLOY
+
+A) SQL
+Supabase > SQL Editor > New query
+Dosya: supabase/supabase-v13-backend-hardening.sql
+Tümünü yapıştır > Run
+Beklenen: Success. No rows returned.
+
+B) AI FUNCTION
+Supabase > Edge Functions > smooth-worker > Edit code
+Dosya: supabase/functions/smooth-worker/index.ts
+Tüm kodu değiştir > Deploy
+Settings > Verify JWT = OFF
+
+C) BRIEF FUNCTION
+Supabase > Edge Functions > Deploy a new function / Via Editor
+Slug: submit-brief
+Dosya: supabase/functions/submit-brief/index.ts
+Kodu yapıştır > Deploy
+Settings > Verify JWT = OFF
+
+D) SECRET
+Edge Functions > Secrets
+OPENAI_API_KEY mevcut olmalı.
+OPENAI_MODEL eklemek zorunlu değil.
+
+E) AI TEST
+POST /functions/v1/smooth-worker
+Content-Type: application/json
+Body:
+{"message":"Merhaba, hangi hizmetleri veriyorsunuz?","history":[],"page":"/"}
+Beklenen: 200 ve {"reply":"..."}
+
+F) BRIEF TEST
+En güvenlisi canlı teklif-al.html formunu doldurup Projeyi Gönder'e basmak.
+Ardından Admin > Talepler ekranında yeni brief görünmeli.
+
+G) SITE
+V13.1 paketini GitHub Pages'e yükle.

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08070d">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Paroglu Media — Admin Giriş</title>
+  <link rel="icon" type="image/png" href="favicon-32.png">
+  <link rel="stylesheet" href="admin.css?v=13.1">
+  <style>
+    body.admin-login-only{min-height:100svh;overflow:hidden}
+    .admin-login-only .login-shell{min-height:100svh;display:grid;place-items:center;padding:28px}
+    .admin-login-only .login-card{position:relative;overflow:hidden}
+    .admin-login-only .login-card:after{content:"";position:absolute;inset:auto -15% -45% 22%;height:260px;background:radial-gradient(circle,rgba(197,64,255,.23),transparent 66%);pointer-events:none}
+    .login-success{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#08070d;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease}
+    .login-success.show{opacity:1;visibility:visible}
+    .login-success-inner{text-align:center;transform:translateY(12px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+    .login-success.show .login-success-inner{transform:none}
+    .login-success img{width:min(260px,58vw);height:auto;margin-bottom:28px}
+    .login-success small{display:block;letter-spacing:.22em;color:rgba(255,255,255,.48);margin-bottom:10px}
+    .login-success strong{font-size:clamp(26px,5vw,52px);letter-spacing:-.04em}
+    .login-success strong em{font-style:normal;color:#e762ff}
+  </style>
+</head>
+<body class="admin-login-only">
+  <div class="admin-noise"></div>
+  <section class="login-shell" id="loginView">
+    <div class="login-card">
+      <img src="paroglu-media-logo-light.png" alt="Paroglu Media" class="login-logo">
+      <div class="login-kicker">YÖNETİM PANELİ / V14</div>
+      <h1>Yönetim alanına<br><em>giriş yap.</em></h1>
+      <p>Paroglu Media içerik, portfolyo, medya ve talepler yönetimi.</p>
+      <form id="loginForm" class="login-form">
+        <label>E-posta<input id="loginEmail" type="email" autocomplete="username" value="umutparoglu87@gmail.com" required></label>
+        <label>Şifre<input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Admin şifren"></label>
+        <button type="submit" class="primary">Giriş Yap ↗</button>
+        <div class="form-message" id="loginMessage" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <div class="login-success" id="loginSuccess" aria-hidden="true">
+    <div class="login-success-inner">
+      <img src="paroglu-media-logo-light.png" alt="">
+      <small>PAROGLU MEDIA / CMS</small>
+      <strong>Giriş başarılı.<br><em>Panel açılıyor.</em></strong>
+    </div>
+  </div>
+
+  <script src="backend-config.js?v=13"></script>
+  <script src="admin-login.js?v=13.1"></script>
+</body>
+</html>
